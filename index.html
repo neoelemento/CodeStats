@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Analytics</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body ng-app="CodeApp">
+	
+	<div ng-controller="CodeController">
+		<p><input type="text" name="uname" ng-model="username"> {{ username }}</p>
+		<p>Name: {{ data.name }}</p>
+		<p>Favourite OS: <span ng-repeat="(key,val) in data.platforms"> {{ key | uppercase }}</span></p>
+		<p>Languages Worked On:</p>
+		<ul>
+			<li ng-repeat="(key,val) in data.languages"> {{ key | dashspace | titlecase}}</li>
+		</ul>
+		<p>Longest Streak: {{ data.max_streak/60 | number:0 }} mins.</p>
+	</div>
+	<div id="details"></div>
+	
+	
+<script src="vendor/js/jquery.js"></script>
+<script src="vendor/js/angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
